@@ -1,6 +1,8 @@
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
 venv/
-.env
-shopping_data.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
