@@ -1,164 +1,122 @@
-# Project Report
+PROJECT REPORT
 
-## Shopping List Manager Using Python
+Shopping List Manager Using Python
 
-### Student Information
+Details
+Name: Swayam Shree Das
+Registration No.: 26BCE11238
+Program: B.Tech CSE Core
+Semester: 1st Semester
+Course: Introduction to Problem Solving and Programming
+Faculty: Jitendra Pratap Singh Mathur  
 
-Student Name -- Swayam Shree Das 
-Registration No. -- 26BCE11238
-Program -- B.Tech CSE Core
-Semester -- 1st Semester
-Course -- Introduction to Problem Solving and Programming
-Faculty -- Jitendra Pratap Singh Mathur
+1. Introduction
+The Shopping List Manager is a simple Python program that helps a user organize items they plan to buy. The program runs in the command line and displays a menu of actions.
+A user can add an item, view the shopping list, update an item's quantity, mark an item as purchased, remove an item, search for an item, and calculate the estimated cost.
+The program stores items in a Python list while it is running. The list is not saved after the program closes.
 
-## 1. Abstract
+2. Objectives
+The objectives of this project are:
+- To practise basic Python programming.
+- To use lists and dictionaries to store information.
+- To use functions to organize a program.
+- To use loops and conditions to control program flow.
+- To accept and process user input.
+- To calculate the total cost of shopping items.
 
-The Shopping List Manager is a command-line application developed using Python. The system helps a user create and maintain a shopping list by allowing items to be added, viewed, updated, searched, marked as purchased, and removed. It also calculates estimated spending based on quantity and price.
+3. Problem Description
+Keeping track of items to buy can be difficult, especially when there are several items with different quantities and prices. This program provides a basic way to manage a shopping list.
+Each item has a name, quantity, price, and purchase status. The program uses these details to display the list and calculate the total cost.
 
-The application uses a JSON file for local data persistence. The project focuses on fundamental programming and problem-solving concepts such as functions, loops, conditional statements, lists, dictionaries, input validation, exception handling, and file handling.
+4. Scope
+The program is designed for simple, personal use in a terminal. It can manage one shopping list during a single program run.
+The program does not use a database or save items to a file. When the program is closed, the items entered during that run are lost.
 
-## 2. Introduction
+5. Features
+- Add item: Adds an item with a name, quantity, and price.
+- View list: Displays all items and their purchase status.
+- Update quantity: Changes the quantity of a selected item.
+- Mark as purchased: Changes the selected item’s status to purchased.
+- Remove item: Deletes an item from the list.
+- Search: Finds items whose names contain the search word.
+- Calculate total: Displays the total value, purchased value, and pending value.
+- Input checks: Displays a message when a number input is invalid.
 
-Maintaining a shopping list manually can make it difficult to track quantities, completed purchases, and expected spending. A simple software application can organize this information and make common shopping-list operations easier.
+6. Tools and Technologies
+- Programming language: Python 3
+- Interface: Command line
+- Data storage: Python list in memory
+- External libraries: None
 
-This project implements a terminal-based solution using Python without requiring third-party libraries.
+7. Python Concepts Used
+The project uses:
+- Variables and data types
+- Strings
+- Lists
+- Dictionaries
+- Functions
+- if, elif, and else statements
+- for and while loops
+- User input with input()
+- List methods such as append() and pop()
+- Basic exception handling with try and except
 
-## 3. Problem Statement
+8. Data Structure
+Each shopping item is stored as a dictionary. For example:
+item = {
+    "name": "Milk",
+    "quantity": 2,
+    "price": 40.0,
+    "purchased": False
+}
+The dictionaries are stored together in a list:
+items = []
+This allows the program to manage multiple items using one list.
 
-Develop a Python-based shopping list application that allows a user to maintain shopping items and their quantities, prices, and purchase status through a simple command-line interface.
+9. Program Logic
+The program first creates an empty list for the shopping items. It then displays a menu inside a loop.
+The user enters a menu option. The program checks the choice and calls the relevant code to perform that action. The menu appears again after the action finishes. The loop ends when the user selects the exit option.
+The total cost for each item is calculated as:
+item cost = quantity × price
+The program adds each item cost to the total. It also adds the cost to the purchased total if the item has been marked as purchased. The pending total is calculated by subtracting the purchased total from the overall total.
 
-## 4. Objectives
+10. How to Run the Program
+1. Save the Python code in a file named shopping_list.py.
+2. Open a terminal or command prompt in the folder containing the file.
+3. Run the program using:
+python shopping_list.py
+On Windows, this command can also be used:
+py shopping_list.py
 
-- Create a simple and usable terminal application.
-- Store shopping items using Python collections.
-- Provide operations for adding, viewing, updating, searching, and removing items.
-- Track whether items have been purchased.
-- Calculate estimated shopping expenditure.
-- Persist data using a JSON file.
-- Apply introductory programming concepts to a practical problem.
+11. Testing
+Test	Expected result
+Add an item with valid details	The item is added to the list
+Enter an empty item name	A message asks for an item name
+View an empty list	A message says the list is empty
+View a list with items	The items and their details are displayed
+Update a valid item number	The item's quantity changes
+Enter an invalid item number	An error message is displayed
+Mark a valid item as purchased	The item's status changes
+Remove a valid item	The item is removed
+Search for an existing item	Matching items are displayed
+Calculate the total	Total, purchased, and pending costs are displayed
+Enter letters where a number is expected	A message asks for a valid number
 
-## 5. Course Relevance
+12. Limitations
+- Items are stored only while the program is running.
+- The list is lost when the program closes.
+- The program does not use a database or file for storage.
+- Prices and quantities must be entered by the user.
+- The program does not check whether the price or quantity is positive.
 
-The project is designed for the course **Introduction to Problem Solving and Programming**. It applies problem decomposition, algorithmic thinking, functions, variables, data structures, conditions, loops, input validation, exception handling, and file processing.
+13. Future Improvements
+The program could be improved by:
+- Saving and loading the shopping list from a file.
+- Checking that quantities and prices are positive.
+- Adding categories for items.
+- Adding a budget limit.
+- Supporting multiple shopping lists.
+- Creating a graphical user interface.
 
-## 6. Technologies Used
-
-- Python 3
-- JSON
-- Python `pathlib`
-- Command-line interface
-
-No third-party packages are required.
-
-## 7. Data Representation
-
-Each shopping item is represented as a dictionary containing:
-
-- `name`
-- `quantity`
-- `price`
-- `purchased`
-
-The complete shopping list is stored as a Python list of dictionaries.
-
-## 8. Methodology
-
-The program follows this basic workflow:
-
-1. Start the application.
-2. Load existing data from `shopping_data.json`, if available.
-3. Display the main menu.
-4. Accept the user's menu choice.
-5. Execute the selected operation.
-6. Save changes when appropriate.
-7. Continue until the user chooses Exit.
-
-## 9. Main Functions
-
-### `load_items()`
-Reads existing shopping-list data from the JSON file.
-
-### `save_items(items)`
-Writes the current shopping list to the JSON file.
-
-### `add_item(items)`
-Collects the item name, quantity, and price and adds the item.
-
-### `view_items(items)`
-Displays all current shopping-list items.
-
-### `update_quantity(items)`
-Changes the quantity of a selected item.
-
-### `mark_purchased(items)`
-Marks an item as purchased.
-
-### `remove_item(items)`
-Deletes a selected item.
-
-### `search_item(items)`
-Finds items using a name or keyword.
-
-### `calculate_total(items)`
-Calculates total, purchased, and pending values.
-
-## 10. Input Validation
-
-The program validates:
-
-- Empty item names.
-- Non-numeric quantities.
-- Quantities less than or equal to zero.
-- Invalid prices.
-- Invalid item numbers.
-- Invalid menu choices.
-
-Exception handling is used for invalid numeric input and problems reading the JSON file.
-
-## 11. Testing Plan
-
-The following cases should be tested before submission:
-
-Test - Expected Result 
-
-Add a valid item - Item is added|
-Add an empty name - Input is rejected
-Enter invalid quantity - User is asked again 
-View list - Items are displayed
-Update quantity - New quantity is stored
-Mark purchased - Status changes to Purchased 
-Search existing item - Matching item is displayed
-Search unknown item - No match is reported 
-Remove item - Item is deleted 
-Calculate total - Correct estimated value is shown
-Restart program - Saved items are loaded
-
-## 12. Results
-
-The final results should be recorded after the student performs the tests on their own computer. The expected outcome is that all listed operations execute without crashing and saved shopping-list data is available after restarting the program.
-
-## 13. Limitations
-
-- The program is terminal based.
-- Data is stored locally.
-- There is no multi-user support.
-- Prices depend on values entered by the user.
-- There is no online product or price database.
-
-## 14. Future Scope
-
-Possible extensions include:
-
-- Graphical user interface.
-- Shopping categories.
-- Budget-limit notifications.
-- CSV export.
-- Database storage.
-- Multiple shopping lists.
-- Product quantity units.
-- Receipt generation.
-
-## 15. Conclusion
-
-The Shopping List Manager demonstrates how fundamental Python programming concepts can be combined to solve a practical problem. The application provides a structured way to maintain shopping items while also demonstrating persistent file storage and input validation.
-
+14. Conclusion
+The Shopping List Manager provides a simple way to organize items and estimate their cost. Developing it gives practice with Python lists, dictionaries, functions, loops, conditions, user input, and basic exception handling. Because the program stores data only during the current run, a future version could add file storage to keep the list between sessions.
