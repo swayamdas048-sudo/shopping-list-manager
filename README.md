@@ -62,6 +62,7 @@ Total cost: 80.0
 Already purchased: 0
 Still need to buy: 80.0
 The exact output depends on the items and choices entered by the user.
+```
 
 <img width="1920" height="1080" alt="Screenshot (43)" src="https://github.com/user-attachments/assets/8991ddb0-10d7-4414-8e3e-3525b9a576e0" />
 <img width="1920" height="1080" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/5047d8b7-00d1-4fc3-bed6-79c7c7f0ade6" />
@@ -69,4 +70,4 @@ The exact output depends on the items and choices entered by the user.
 <img width="1920" height="1080" alt="Screenshot (47)" src="https://github.com/user-attachments/assets/833e1340-022a-4d42-907c-72da35a47eb5" />
 
 
-```
+
